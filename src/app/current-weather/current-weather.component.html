@@ -4,8 +4,8 @@
         <span>{{current.date | date: 'fullDate'}}</span>
     </div>
     <div>
-        <img [src]="current.image" alt="">
+        <img [src]="current.image" alt="current temperature">
         <span>{{current.temperature | number: '1.0-0'}}</span>
     </div>
-    <div>{{current.description}}</div>
+    <div style="font-size: 40px;">{{current.description}}</div>
 </div>
