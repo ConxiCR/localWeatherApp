@@ -1,5 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+
+
 
 interface ICurrentWeatherData{
   weather: [{
@@ -22,5 +25,9 @@ interface ICurrentWeatherData{
 
 export class WeatherService {
 
-  constructor(private httClient: HttpClientModule) { }
+  constructor(private httClient: HttpClient) { }
+
+  getCurrentWeather(city:string, country:string){
+    return this.httClient.get<ICurrentWeatherData>(`${environment.baseUrl}api.openweathermap.org/data/2.5/weather?`+`q=${city},${country}&appid=${environment.appId}`)
+  }
 }
